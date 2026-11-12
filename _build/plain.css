@@ -1,0 +1,43 @@
+/* ===== 비전공자판 덧붙임 (ai-lab-explainer-plain 3장) ===== */
+section.level{padding:44px 0}
+section.level p, section.level li{line-height:1.8}
+.first3{background:linear-gradient(160deg,rgba(94,227,156,.08),rgba(130,184,255,.06));border:1px solid rgba(94,227,156,.4);border-radius:16px;padding:20px 22px}
+.first3 h2{margin-top:0;font-size:22px}
+.first3 ol{margin:0;padding-left:22px}.first3 li{margin:10px 0}
+.first3 li b{display:inline-block;min-width:92px;color:var(--gfp)}
+.first3 .ok{margin:12px 0 0;font-weight:700;color:var(--amber)}
+details.abbr{margin-top:12px;font-size:14px}details.abbr summary{cursor:pointer;color:var(--info)}
+details.abbr dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:10px 0 0}
+details.abbr dt{font-weight:700;color:var(--text)}details.abbr dd{margin:0;color:var(--muted)}
+.twobox{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0;align-items:start}
+.whybox,.mathbox{border-radius:16px;padding:20px;border:1px solid var(--rule);background:var(--panel);min-width:0}
+.whybox{border-color:rgba(130,184,255,.45)}.mathbox{border-color:rgba(255,134,184,.45)}
+.whybox h4,.mathbox h4{margin:0 0 10px;font-size:16px}.whybox h4{color:var(--info)}.mathbox h4{color:var(--c-asst)}
+.whybox p,.mathbox p{margin:10px 0}
+.whybox .easy{background:rgba(130,184,255,.1);border-radius:10px;padding:10px 12px}
+.mathbox .eq{margin:10px 0;font-size:15px}
+.tb.pieces td:first-child{white-space:nowrap;font-weight:700}
+.say.mini{grid-template-columns:44px 1fr;gap:10px;margin:10px 0}.say.mini img.who{width:44px;height:44px}
+.talk{margin:18px 0;padding:6px 14px;border-left:3px solid var(--stain);background:rgba(214,114,214,.05);border-radius:0 14px 14px 0}
+.talk .say{margin:10px 0}
+.explain ol li{margin:10px 0}
+.map3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0}
+.map3>div{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:16px 18px}
+.map3 h4{margin:0 0 8px;font-size:16px}.map3 ol{margin:0;padding-left:20px;font-size:14.5px;color:var(--muted)}
+.map3 li{margin:4px 0}.map3 li.on{color:var(--gfp);font-weight:700}
+.hexmini{display:inline-block;margin-right:8px;padding:2px 8px;border-radius:8px;background:var(--panel2);color:var(--amber);font-size:12px}
+tr.hl td{background:rgba(94,227,156,.08)}
+a.soon{opacity:.55;cursor:default}
+.cast{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}
+details.code code{font-size:12.5px;white-space:nowrap}
+@media (max-width:860px){.twobox{grid-template-columns:1fr}.map3{grid-template-columns:1fr}}
+@media (max-width:600px){section.level{padding:32px 0}.first3 li b{display:block}}
+.twobox.one{grid-template-columns:1fr}
+.cardgame{background:var(--panel2);border:1px solid var(--rule);border-radius:14px;padding:18px;margin:12px 0}
+.cardgame .card{font-size:17px;font-weight:700;min-height:54px;padding:14px 16px;border-radius:12px;background:var(--panel);border:1px dashed var(--amber);margin-bottom:12px}
+.cardgame .fb{margin-top:10px;font-size:14.5px;min-height:44px}
+.cardgame .fb.ok{color:var(--gfp)}.cardgame .fb.no{color:var(--eye)}
+
+.kpinote{font-size:13px;color:var(--muted);margin:8px 0 0}
+details.castfold>summary{cursor:pointer;font-weight:700;font-size:16px;color:var(--info);padding:6px 0}
+section#cast:has(details.castfold){padding:18px 0}

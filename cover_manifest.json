@@ -1,0 +1,201 @@
+{
+  "series_ko": "기억 3부작 — LLM은 어디까지 기억할 수 있을까",
+  "title_ko": "기억 3부작",
+  "site_title": "기억 3부작 · 목차",
+  "site_url": "https://adminmrobo.github.io/llm_memory_trilogy/",
+  "ontology": {
+    "pages": [
+      {
+        "path": "index.html",
+        "kg": false,
+        "export": false
+      },
+      {
+        "path": "1_1_window_is_memory.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "1_2_fading_echo.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "1_3_long_memory.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "1_4_reading_state.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "1_5_eraser_notepad.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "1_6_duel_summary.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "2_1_context_window.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "2_2_bigger_window.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "2_3_three_drawers.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "2_4_compaction.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "2_5_retrieval.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "2_6_duel_summary.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "3_1_what_to_remember.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "3_2_when_to_write.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "3_3_maintain.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "3_4_memorilla.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "3_5_agent_experience.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "3_6_duel_wrapup.html",
+        "kg": true,
+        "export": true
+      }
+    ],
+    "files": [
+      "KG_00_registry.json"
+    ]
+  },
+  "i18n": {
+    "langs": [
+      "ko"
+    ],
+    "pages": {
+      "ko": 19
+    },
+    "readme_langs": [
+      "ko"
+    ]
+  },
+  "languages": [
+    "ko"
+  ],
+  "items": [
+    {
+      "id": "cover_index",
+      "role": "cover",
+      "path": "assets/img/cover_index.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "doc",
+        "asst",
+        "fly",
+        "jupanbot"
+      ],
+      "robot": "jupanbot-v2",
+      "prompt_en": "see docs/COVER_PROMPTS_memory.md",
+      "source_of": null,
+      "status": "pending"
+    },
+    {
+      "id": "cover_ch1",
+      "role": "cover",
+      "path": "assets/img/cover_ch1.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "doc",
+        "asst",
+        "fly",
+        "jupanbot"
+      ],
+      "robot": "jupanbot-v2",
+      "prompt_en": "see docs/COVER_PROMPTS_memory.md",
+      "source_of": null,
+      "status": "pending"
+    },
+    {
+      "id": "cover_ch2",
+      "role": "cover",
+      "path": "assets/img/cover_ch2.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "doc",
+        "asst",
+        "fly",
+        "jupanbot"
+      ],
+      "robot": "jupanbot-v2",
+      "prompt_en": "see docs/COVER_PROMPTS_memory.md",
+      "source_of": null,
+      "status": "pending"
+    },
+    {
+      "id": "cover_ch3",
+      "role": "cover",
+      "path": "assets/img/cover_ch3.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "doc",
+        "asst",
+        "fly",
+        "jupanbot"
+      ],
+      "robot": "jupanbot-v2",
+      "prompt_en": "see docs/COVER_PROMPTS_memory.md",
+      "source_of": null,
+      "status": "pending"
+    }
+  ],
+  "updated": "2026-11-12"
+}

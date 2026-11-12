@@ -1,0 +1,150 @@
+[
+ {
+  "id": "box1970time",
+  "type": "book",
+  "title": "Time Series Analysis: Forecasting and Control",
+  "author": [
+   {
+    "family": "Box",
+    "given": "George E. P."
+   },
+   {
+    "family": "Jenkins",
+    "given": "Gwilym M."
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     1970
+    ]
+   ]
+  },
+  "publisher": "Holden-Day",
+  "lab": {
+   "role": "background",
+   "verified": {
+    "title": true,
+    "authors": true,
+    "year": true,
+    "venue": true,
+    "doi": true,
+    "pages": true
+   },
+   "checkedBy": "저자 지식 (표준 교과서)",
+   "note": "ARIMA 방법론의 원전. 판(edition)별 쪽수는 확인하지 않음",
+   "work": "lab:work/box1970time",
+   "supports": [
+    "lab:claim/box-jenkins-arima"
+   ],
+   "locs": [
+    {
+     "claim": "lab:claim/box-jenkins-arima",
+     "loc": "책 전체"
+    }
+   ]
+  }
+ },
+ {
+  "id": "hochreiter1997long",
+  "type": "article-journal",
+  "title": "Long Short-Term Memory",
+  "author": [
+   {
+    "family": "Hochreiter",
+    "given": "Sepp"
+   },
+   {
+    "family": "Schmidhuber",
+    "given": "Jürgen"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     1997
+    ]
+   ]
+  },
+  "container-title": "Neural Computation",
+  "volume": "9",
+  "issue": "8",
+  "page": "1735-1780",
+  "DOI": "10.1162/neco.1997.9.8.1735",
+  "lab": {
+   "role": "primary",
+   "verified": {
+    "title": true,
+    "authors": true,
+    "year": true,
+    "venue": true,
+    "doi": true,
+    "pages": true
+   },
+   "checkedBy": "웹 검색 2026-10-29",
+   "work": "lab:work/hochreiter1997long",
+   "supports": [
+    "lab:claim/lstm-1997"
+   ],
+   "locs": [
+    {
+     "claim": "lab:claim/lstm-1997",
+     "loc": "논문 전체"
+    }
+   ]
+  }
+ },
+ {
+  "id": "gers2000learning",
+  "type": "article-journal",
+  "title": "Learning to Forget: Continual Prediction with LSTM",
+  "author": [
+   {
+    "family": "Gers",
+    "given": "Felix A."
+   },
+   {
+    "family": "Schmidhuber",
+    "given": "Jürgen"
+   },
+   {
+    "family": "Cummins",
+    "given": "Fred"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2000
+    ]
+   ]
+  },
+  "container-title": "Neural Computation",
+  "volume": "12",
+  "issue": "10",
+  "page": "2451-2471",
+  "lab": {
+   "role": "background",
+   "verified": {
+    "title": true,
+    "authors": true,
+    "year": true,
+    "venue": true,
+    "doi": false,
+    "pages": false
+   },
+   "checkedBy": "저자 지식",
+   "note": "잊기 게이트를 더한 논문. DOI·쪽수 원문 확인 필요",
+   "work": "lab:work/gers2000learning",
+   "supports": [
+    "lab:claim/forget-gate-2000"
+   ],
+   "locs": [
+    {
+     "claim": "lab:claim/forget-gate-2000",
+     "loc": "논문 전체"
+    }
+   ]
+  }
+ }
+]

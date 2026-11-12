@@ -1,0 +1,2628 @@
+{
+ "version": "mem3-reg-1.0",
+ "series": "기억 3부작 — LLM은 어디까지 기억할 수 있을까",
+ "updated": "2026-11-12",
+ "note": "시계열 3부작(ts3) 등록부와 같은 개념은 같은 ID를 쓴다 (time-series, lookback, sliding-window, naive-forecast, one-step-forecast, lstm 등).",
+ "pages": [
+  {
+   "id": "mem3_1-1",
+   "number": "1-1",
+   "file": "1_1_window_is_memory.html",
+   "title": "창 밖은 없는 것",
+   "duel": "D",
+   "nodes": 39,
+   "edges": 45
+  },
+  {
+   "id": "mem3_1-2",
+   "number": "1-2",
+   "file": "1_2_fading_echo.html",
+   "title": "메아리는 언제 꺼지나",
+   "duel": "F",
+   "nodes": 27,
+   "edges": 27
+  },
+  {
+   "id": "mem3_1-3",
+   "number": "1-3",
+   "file": "1_3_long_memory.html",
+   "title": "꺼지지 않는 메아리",
+   "duel": "R",
+   "nodes": 31,
+   "edges": 32
+  },
+  {
+   "id": "mem3_1-4",
+   "number": "1-4",
+   "file": "1_4_reading_state.html",
+   "title": "읽으며 기억하기",
+   "duel": "D",
+   "nodes": 30,
+   "edges": 31
+  },
+  {
+   "id": "mem3_1-5",
+   "number": "1-5",
+   "file": "1_5_eraser_notepad.html",
+   "title": "지우개 달린 메모장",
+   "duel": "R",
+   "nodes": 29,
+   "edges": 29
+  },
+  {
+   "id": "mem3_1-6",
+   "number": "1-6",
+   "file": "1_6_duel_summary.html",
+   "title": "1부 대결·정리",
+   "duel": "F",
+   "nodes": 26,
+   "edges": 22
+  },
+  {
+   "id": "mem3_2-1",
+   "number": "2-1",
+   "file": "2_1_context_window.html",
+   "title": "문맥 창 = 글의 창",
+   "duel": "R",
+   "nodes": 28,
+   "edges": 28
+  },
+  {
+   "id": "mem3_2-2",
+   "number": "2-2",
+   "file": "2_2_bigger_window.html",
+   "title": "창을 키우면 될까",
+   "duel": "F",
+   "nodes": 27,
+   "edges": 26
+  },
+  {
+   "id": "mem3_2-3",
+   "number": "2-3",
+   "file": "2_3_three_drawers.html",
+   "title": "기억 서랍 셋",
+   "duel": "F",
+   "nodes": 26,
+   "edges": 29
+  },
+  {
+   "id": "mem3_2-4",
+   "number": "2-4",
+   "file": "2_4_compaction.html",
+   "title": "대화 압축",
+   "duel": "R",
+   "nodes": 26,
+   "edges": 25
+  },
+  {
+   "id": "mem3_2-5",
+   "number": "2-5",
+   "file": "2_5_retrieval.html",
+   "title": "꺼내 읽기",
+   "duel": "R",
+   "nodes": 29,
+   "edges": 30
+  },
+  {
+   "id": "mem3_2-6",
+   "number": "2-6",
+   "file": "2_6_duel_summary.html",
+   "title": "2부 대결·정리",
+   "duel": "F",
+   "nodes": 25,
+   "edges": 22
+  },
+  {
+   "id": "mem3_3-1",
+   "number": "3-1",
+   "file": "3_1_what_to_remember.html",
+   "title": "무엇을 기억할까",
+   "duel": "F",
+   "nodes": 27,
+   "edges": 27
+  },
+  {
+   "id": "mem3_3-2",
+   "number": "3-2",
+   "file": "3_2_when_to_write.html",
+   "title": "언제 적을까",
+   "duel": "D",
+   "nodes": 26,
+   "edges": 25
+  },
+  {
+   "id": "mem3_3-3",
+   "number": "3-3",
+   "file": "3_3_maintain.html",
+   "title": "낡은 기억 돌보기",
+   "duel": "R",
+   "nodes": 28,
+   "edges": 29
+  },
+  {
+   "id": "mem3_3-4",
+   "number": "3-4",
+   "file": "3_4_memorilla.html",
+   "title": "16개 토큰에 담기",
+   "duel": "R",
+   "nodes": 33,
+   "edges": 36
+  },
+  {
+   "id": "mem3_3-5",
+   "number": "3-5",
+   "file": "3_5_agent_experience.html",
+   "title": "경험으로 배우는 에이전트",
+   "duel": "R",
+   "nodes": 31,
+   "edges": 31
+  },
+  {
+   "id": "mem3_3-6",
+   "number": "3-6",
+   "file": "3_6_duel_wrapup.html",
+   "title": "대결·총정리",
+   "duel": "F",
+   "nodes": 34,
+   "edges": 31
+  }
+ ],
+ "nodes": [
+  {
+   "id": "lab:concept/time-series",
+   "type": "Concept",
+   "label": {
+    "ko": "시계열",
+    "en": "time series"
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1"
+   ]
+  },
+  {
+   "id": "lab:concept/lookback",
+   "type": "Concept",
+   "label": {
+    "ko": "창 길이 (lookback)",
+    "en": "lookback"
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1"
+   ]
+  },
+  {
+   "id": "lab:concept/sliding-window",
+   "type": "Concept",
+   "label": {
+    "ko": "창 (window)",
+    "en": "sliding window"
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1",
+    "mem3_1-6"
+   ]
+  },
+  {
+   "id": "lab:concept/memory-horizon",
+   "type": "Concept",
+   "label": {
+    "ko": "기억의 길이",
+    "en": "memory horizon"
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1"
+   ]
+  },
+  {
+   "id": "lab:concept/context-window",
+   "type": "Concept",
+   "label": {
+    "ko": "문맥 창",
+    "en": "context window"
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1",
+    "mem3_1-6",
+    "mem3_2-1",
+    "mem3_2-2",
+    "mem3_2-4"
+   ]
+  },
+  {
+   "id": "lab:concept/overfitting",
+   "type": "Concept",
+   "label": {
+    "ko": "과적합",
+    "en": "overfitting"
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1"
+   ]
+  },
+  {
+   "id": "lab:concept/validation-set",
+   "type": "Concept",
+   "label": {
+    "ko": "검증 데이터",
+    "en": "validation set"
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1"
+   ]
+  },
+  {
+   "id": "lab:concept/training-sample",
+   "type": "Concept",
+   "label": {
+    "ko": "연습 문제 (학습 샘플)",
+    "en": "training sample"
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1"
+   ]
+  },
+  {
+   "id": "lab:method/ar-model",
+   "type": "Method",
+   "label": {
+    "ko": "자기회귀 (AR)",
+    "en": "autoregressive model"
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1"
+   ]
+  },
+  {
+   "id": "lab:method/naive-forecast",
+   "type": "Method",
+   "label": {
+    "ko": "어제 값 그대로 (나이브 예측)",
+    "en": "naive forecast"
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1"
+   ]
+  },
+  {
+   "id": "lab:metric/mae",
+   "type": "Metric",
+   "label": {
+    "ko": "평균 절대 오차 (MAE)",
+    "en": "mean absolute error"
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1"
+   ]
+  },
+  {
+   "id": "lab:task/one-step-forecast",
+   "type": "Task",
+   "label": {
+    "ko": "다음 날 예측",
+    "en": "one-step-ahead forecasting"
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1"
+   ]
+  },
+  {
+   "id": "lab:limitation/window-blindness",
+   "type": "Limitation",
+   "label": {
+    "ko": "창 밖은 보이지 않는다",
+    "en": "no access outside the window"
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1"
+   ]
+  },
+  {
+   "id": "lab:limitation/window-cost",
+   "type": "Limitation",
+   "label": {
+    "ko": "창을 늘리는 값",
+    "en": "cost of a longer window"
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1"
+   ]
+  },
+  {
+   "id": "lab:analogy/desk-pages",
+   "type": "Analogy",
+   "label": {
+    "ko": "책상에 펼친 쪽만 보는 계산원",
+    "en": "pages open on the desk"
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1"
+   ]
+  },
+  {
+   "id": "lab:claim/box-jenkins-arima",
+   "type": "Claim",
+   "label": {
+    "ko": "자기회귀를 포함한 ARIMA 방법론은 Box와 Jenkins(1970)가 체계화했다",
+    "en": ""
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1"
+   ]
+  },
+  {
+   "id": "lab:claim/context-window-limit",
+   "type": "Claim",
+   "label": {
+    "ko": "문맥 창은 한 번의 추론에서 처리할 수 있는 글의 양을 제한한다",
+    "en": ""
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1",
+    "mem3_1-6",
+    "mem3_2-1"
+   ]
+  },
+  {
+   "id": "lab:claim/window-outside-zero",
+   "type": "Claim",
+   "label": {
+    "ko": "이 페이지의 자기회귀 모델에서 창 밖 사건은 예측을 0만 원 바꾼다",
+    "en": ""
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1"
+   ]
+  },
+  {
+   "id": "lab:question/mem-1-1-core",
+   "type": "Question",
+   "label": {
+    "ko": "모델은 책상에 펼쳐 놓지 않은 과거를 기억할 수 있을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1"
+   ]
+  },
+  {
+   "id": "lab:question/mem-how-fast-fades",
+   "type": "Question",
+   "label": {
+    "ko": "과거의 영향은 얼마나 빨리 꺼질까?",
+    "en": ""
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1"
+   ]
+  },
+  {
+   "id": "lab:question/mem-other-memory",
+   "type": "Question",
+   "label": {
+    "ko": "창을 늘리지 않고 먼 과거를 기억하는 방법이 있을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_1-1",
+   "pages": [
+    "mem3_1-1"
+   ]
+  },
+  {
+   "id": "lab:concept/autocorrelation",
+   "type": "Concept",
+   "label": {
+    "ko": "자기상관",
+    "en": "autocorrelation"
+   },
+   "firstPage": "mem3_1-2",
+   "pages": [
+    "mem3_1-2"
+   ]
+  },
+  {
+   "id": "lab:concept/echo",
+   "type": "Concept",
+   "label": {
+    "ko": "메아리 (과거의 흔적)",
+    "en": "echo of the past"
+   },
+   "firstPage": "mem3_1-2",
+   "pages": [
+    "mem3_1-2"
+   ]
+  },
+  {
+   "id": "lab:concept/lag",
+   "type": "Concept",
+   "label": {
+    "ko": "시차 (며칠 전)",
+    "en": "lag"
+   },
+   "firstPage": "mem3_1-2",
+   "pages": [
+    "mem3_1-2"
+   ]
+  },
+  {
+   "id": "lab:concept/seasonality",
+   "type": "Concept",
+   "label": {
+    "ko": "되풀이되는 흐름 (계절성)",
+    "en": "seasonality"
+   },
+   "firstPage": "mem3_1-2",
+   "pages": [
+    "mem3_1-2"
+   ]
+  },
+  {
+   "id": "lab:concept/short-memory",
+   "type": "Concept",
+   "label": {
+    "ko": "단기기억 (빨리 꺼지는 메아리)",
+    "en": "short memory"
+   },
+   "firstPage": "mem3_1-2",
+   "pages": [
+    "mem3_1-2",
+    "mem3_1-3"
+   ]
+  },
+  {
+   "id": "lab:concept/half-life",
+   "type": "Concept",
+   "label": {
+    "ko": "반감기",
+    "en": "half-life"
+   },
+   "firstPage": "mem3_1-2",
+   "pages": [
+    "mem3_1-2"
+   ]
+  },
+  {
+   "id": "lab:concept/decay-rate",
+   "type": "Concept",
+   "label": {
+    "ko": "하루 뒤 남는 비율 (φ)",
+    "en": "decay rate"
+   },
+   "firstPage": "mem3_1-2",
+   "pages": [
+    "mem3_1-2"
+   ]
+  },
+  {
+   "id": "lab:method/deseasonalize",
+   "type": "Method",
+   "label": {
+    "ko": "요일 평균 빼기",
+    "en": "deseasonalizing"
+   },
+   "firstPage": "mem3_1-2",
+   "pages": [
+    "mem3_1-2"
+   ]
+  },
+  {
+   "id": "lab:question/mem-1-2-core",
+   "type": "Question",
+   "label": {
+    "ko": "어제의 일은 며칠 뒤까지 오늘에 남아 있을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_1-2",
+   "pages": [
+    "mem3_1-2"
+   ]
+  },
+  {
+   "id": "lab:question/mem-slow-echo",
+   "type": "Question",
+   "label": {
+    "ko": "일정한 비율보다 천천히 꺼지는 메아리도 있을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_1-2",
+   "pages": [
+    "mem3_1-2"
+   ]
+  },
+  {
+   "id": "lab:claim/acf-box-jenkins",
+   "type": "Claim",
+   "label": {
+    "ko": "자기상관 그림으로 시계열 모형을 고르는 절차는 Box와 Jenkins(1970)가 체계화했다",
+    "en": ""
+   },
+   "firstPage": "mem3_1-2",
+   "pages": [
+    "mem3_1-2"
+   ]
+  },
+  {
+   "id": "lab:concept/long-memory",
+   "type": "Concept",
+   "label": {
+    "ko": "장기기억 (천천히 꺼지는 메아리)",
+    "en": "long memory"
+   },
+   "firstPage": "mem3_1-3",
+   "pages": [
+    "mem3_1-3"
+   ]
+  },
+  {
+   "id": "lab:concept/hurst-exponent",
+   "type": "Concept",
+   "label": {
+    "ko": "허스트 지수",
+    "en": "Hurst exponent"
+   },
+   "firstPage": "mem3_1-3",
+   "pages": [
+    "mem3_1-3"
+   ]
+  },
+  {
+   "id": "lab:concept/hyperbolic-decay",
+   "type": "Concept",
+   "label": {
+    "ko": "나누기로 줄기 (거듭제곱 감쇠)",
+    "en": "hyperbolic decay"
+   },
+   "firstPage": "mem3_1-3",
+   "pages": [
+    "mem3_1-3"
+   ]
+  },
+  {
+   "id": "lab:method/fractional-differencing",
+   "type": "Method",
+   "label": {
+    "ko": "분수 차분",
+    "en": "fractional differencing"
+   },
+   "firstPage": "mem3_1-3",
+   "pages": [
+    "mem3_1-3"
+   ]
+  },
+  {
+   "id": "lab:task/long-horizon-forecast",
+   "type": "Task",
+   "label": {
+    "ko": "멀리 내다보기 (다음 30일 평균)",
+    "en": "long-horizon forecasting"
+   },
+   "firstPage": "mem3_1-3",
+   "pages": [
+    "mem3_1-3"
+   ]
+  },
+  {
+   "id": "lab:concept/mean-reversion",
+   "type": "Concept",
+   "label": {
+    "ko": "평소로 돌아가기",
+    "en": "mean reversion"
+   },
+   "firstPage": "mem3_1-3",
+   "pages": [
+    "mem3_1-3"
+   ]
+  },
+  {
+   "id": "lab:limitation/long-window-needed",
+   "type": "Limitation",
+   "label": {
+    "ko": "오래 가는 메아리는 긴 창을 요구한다",
+    "en": "long memory needs long windows"
+   },
+   "firstPage": "mem3_1-3",
+   "pages": [
+    "mem3_1-3"
+   ]
+  },
+  {
+   "id": "lab:question/mem-1-3-core",
+   "type": "Question",
+   "label": {
+    "ko": "몇 달 전의 일이 아직도 오늘을 움직이는 기록이 있을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_1-3",
+   "pages": [
+    "mem3_1-3"
+   ]
+  },
+  {
+   "id": "lab:question/mem-compress-past",
+   "type": "Question",
+   "label": {
+    "ko": "과거를 길게 펼치지 않고 줄여서 들고 다닐 수 있을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_1-3",
+   "pages": [
+    "mem3_1-3"
+   ]
+  },
+  {
+   "id": "lab:claim/hurst-nile",
+   "type": "Claim",
+   "label": {
+    "ko": "허스트(1951)는 나일강 기록에서 우연으로 보기 어려운 긴 흐름을 찾았다",
+    "en": ""
+   },
+   "firstPage": "mem3_1-3",
+   "pages": [
+    "mem3_1-3"
+   ]
+  },
+  {
+   "id": "lab:claim/fractional-long-memory",
+   "type": "Claim",
+   "label": {
+    "ko": "분수 차분으로 천천히 꺼지는 메아리를 가진 시계열 모형을 만들 수 있다",
+    "en": ""
+   },
+   "firstPage": "mem3_1-3",
+   "pages": [
+    "mem3_1-3"
+   ]
+  },
+  {
+   "id": "lab:claim/hosking-d",
+   "type": "Claim",
+   "label": {
+    "ko": "분수 차분 모형은 세기 d 하나로 메아리의 지속을 정한다",
+    "en": ""
+   },
+   "firstPage": "mem3_1-3",
+   "pages": [
+    "mem3_1-3"
+   ]
+  },
+  {
+   "id": "lab:concept/running-memo",
+   "type": "Concept",
+   "label": {
+    "ko": "메모 한 칸 (지수 평균)",
+    "en": "running memo (exponential average)"
+   },
+   "firstPage": "mem3_1-4",
+   "pages": [
+    "mem3_1-4"
+   ]
+  },
+  {
+   "id": "lab:concept/hidden-state",
+   "type": "Concept",
+   "label": {
+    "ko": "은닉 상태",
+    "en": "hidden state"
+   },
+   "firstPage": "mem3_1-4",
+   "pages": [
+    "mem3_1-4"
+   ]
+  },
+  {
+   "id": "lab:method/rnn",
+   "type": "Method",
+   "label": {
+    "ko": "순환 신경망 (RNN)",
+    "en": "recurrent neural network"
+   },
+   "firstPage": "mem3_1-4",
+   "pages": [
+    "mem3_1-4"
+   ]
+  },
+  {
+   "id": "lab:concept/retention-rate",
+   "type": "Concept",
+   "label": {
+    "ko": "남기는 비율",
+    "en": "retention rate"
+   },
+   "firstPage": "mem3_1-4",
+   "pages": [
+    "mem3_1-4"
+   ]
+  },
+  {
+   "id": "lab:concept/multi-timescale",
+   "type": "Concept",
+   "label": {
+    "ko": "속도가 다른 메모 여러 칸",
+    "en": "multiple timescales"
+   },
+   "firstPage": "mem3_1-4",
+   "pages": [
+    "mem3_1-4"
+   ]
+  },
+  {
+   "id": "lab:concept/vanishing-gradient",
+   "type": "Concept",
+   "label": {
+    "ko": "사라지는 학습 신호 (기울기 소실)",
+    "en": "vanishing gradient"
+   },
+   "firstPage": "mem3_1-4",
+   "pages": [
+    "mem3_1-4"
+   ]
+  },
+  {
+   "id": "lab:concept/exploding-gradient",
+   "type": "Concept",
+   "label": {
+    "ko": "터지는 학습 신호 (기울기 폭주)",
+    "en": "exploding gradient"
+   },
+   "firstPage": "mem3_1-4",
+   "pages": [
+    "mem3_1-4"
+   ]
+  },
+  {
+   "id": "lab:concept/backprop-through-time",
+   "type": "Concept",
+   "label": {
+    "ko": "시간을 거슬러 되돌려 보내기",
+    "en": "backpropagation through time"
+   },
+   "firstPage": "mem3_1-4",
+   "pages": [
+    "mem3_1-4"
+   ]
+  },
+  {
+   "id": "lab:limitation/memo-blurs",
+   "type": "Limitation",
+   "label": {
+    "ko": "메모는 뭉갠다",
+    "en": "a memo blurs sharp patterns"
+   },
+   "firstPage": "mem3_1-4",
+   "pages": [
+    "mem3_1-4"
+   ]
+  },
+  {
+   "id": "lab:question/mem-1-4-core",
+   "type": "Question",
+   "label": {
+    "ko": "기록을 펼쳐 놓지 않고도 먼 과거를 들고 다닐 수 있을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_1-4",
+   "pages": [
+    "mem3_1-4"
+   ]
+  },
+  {
+   "id": "lab:question/mem-learn-what-to-keep",
+   "type": "Question",
+   "label": {
+    "ko": "무엇을 오래 붙들지 기록에서 스스로 배우게 할 수 있을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_1-4",
+   "pages": [
+    "mem3_1-4"
+   ]
+  },
+  {
+   "id": "lab:claim/elman-srn",
+   "type": "Claim",
+   "label": {
+    "ko": "단순 순환 신경망은 앞 칸의 상태를 다음 칸의 입력으로 되돌려 시간의 구조를 배운다",
+    "en": ""
+   },
+   "firstPage": "mem3_1-4",
+   "pages": [
+    "mem3_1-4"
+   ]
+  },
+  {
+   "id": "lab:claim/bengio-vanishing",
+   "type": "Claim",
+   "label": {
+    "ko": "순환 신경망에서 먼 칸으로 되돌아가는 학습 신호는 칸 수에 따라 지수적으로 줄거나 커진다",
+    "en": ""
+   },
+   "firstPage": "mem3_1-4",
+   "pages": [
+    "mem3_1-4"
+   ]
+  },
+  {
+   "id": "lab:method/lstm",
+   "type": "Method",
+   "label": {
+    "ko": "LSTM (지우개 달린 메모장)",
+    "en": "long short-term memory"
+   },
+   "firstPage": "mem3_1-5",
+   "pages": [
+    "mem3_1-5"
+   ]
+  },
+  {
+   "id": "lab:concept/cell-state",
+   "type": "Concept",
+   "label": {
+    "ko": "메모 (셀 상태)",
+    "en": "cell state"
+   },
+   "firstPage": "mem3_1-5",
+   "pages": [
+    "mem3_1-5"
+   ]
+  },
+  {
+   "id": "lab:concept/forget-gate",
+   "type": "Concept",
+   "label": {
+    "ko": "지우개 문 (잊기 문)",
+    "en": "forget gate"
+   },
+   "firstPage": "mem3_1-5",
+   "pages": [
+    "mem3_1-5"
+   ]
+  },
+  {
+   "id": "lab:concept/input-gate",
+   "type": "Concept",
+   "label": {
+    "ko": "펜 문 (입력 문)",
+    "en": "input gate"
+   },
+   "firstPage": "mem3_1-5",
+   "pages": [
+    "mem3_1-5"
+   ]
+  },
+  {
+   "id": "lab:concept/constant-error-path",
+   "type": "Concept",
+   "label": {
+    "ko": "줄지 않는 길",
+    "en": "constant error path"
+   },
+   "firstPage": "mem3_1-5",
+   "pages": [
+    "mem3_1-5"
+   ]
+  },
+  {
+   "id": "lab:task/cue-recall",
+   "type": "Task",
+   "label": {
+    "ko": "신호 기억 시험",
+    "en": "cue recall task"
+   },
+   "firstPage": "mem3_1-5",
+   "pages": [
+    "mem3_1-5"
+   ]
+  },
+  {
+   "id": "lab:limitation/fixed-cells",
+   "type": "Limitation",
+   "label": {
+    "ko": "메모 칸 수는 정해져 있다",
+    "en": "fixed memory size"
+   },
+   "firstPage": "mem3_1-5",
+   "pages": [
+    "mem3_1-5"
+   ]
+  },
+  {
+   "id": "lab:question/mem-1-5-core",
+   "type": "Question",
+   "label": {
+    "ko": "30칸 전에 들은 한마디를 잡음 속에서 끝까지 붙들 수 있을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_1-5",
+   "pages": [
+    "mem3_1-5"
+   ]
+  },
+  {
+   "id": "lab:question/mem-beyond-cells",
+   "type": "Question",
+   "label": {
+    "ko": "칸 수가 정해진 메모에 담기지 않는 긴 글은 어떻게 기억할까?",
+    "en": ""
+   },
+   "firstPage": "mem3_1-5",
+   "pages": [
+    "mem3_1-5"
+   ]
+  },
+  {
+   "id": "lab:claim/lstm-1997",
+   "type": "Claim",
+   "label": {
+    "ko": "LSTM은 오차 신호가 줄지 않고 지나가는 길을 두어 먼 칸의 의존을 배우도록 제안되었다",
+    "en": ""
+   },
+   "firstPage": "mem3_1-5",
+   "pages": [
+    "mem3_1-5"
+   ]
+  },
+  {
+   "id": "lab:claim/forget-gate-2000",
+   "type": "Claim",
+   "label": {
+    "ko": "잊기 문(지우개)은 2000년에 LSTM에 더해졌다",
+    "en": ""
+   },
+   "firstPage": "mem3_1-5",
+   "pages": [
+    "mem3_1-5"
+   ]
+  },
+  {
+   "id": "lab:concept/no-single-best-memory",
+   "type": "Concept",
+   "label": {
+    "ko": "기록이 승자를 정한다",
+    "en": "no single best memory"
+   },
+   "firstPage": "mem3_1-6",
+   "pages": [
+    "mem3_1-6",
+    "mem3_2-6"
+   ]
+  },
+  {
+   "id": "lab:concept/record-property",
+   "type": "Concept",
+   "label": {
+    "ko": "기록의 성질",
+    "en": "properties of a record"
+   },
+   "firstPage": "mem3_1-6",
+   "pages": [
+    "mem3_1-6"
+   ]
+  },
+  {
+   "id": "lab:concept/token",
+   "type": "Concept",
+   "label": {
+    "ko": "조각 (토큰)",
+    "en": "token"
+   },
+   "firstPage": "mem3_1-6",
+   "pages": [
+    "mem3_1-6",
+    "mem3_2-1"
+   ]
+  },
+  {
+   "id": "lab:question/mem-1-6-core",
+   "type": "Question",
+   "label": {
+    "ko": "가장 좋은 기억 장치는 하나로 정해져 있을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_1-6",
+   "pages": [
+    "mem3_1-6"
+   ]
+  },
+  {
+   "id": "lab:question/mem-recover-evicted",
+   "type": "Question",
+   "label": {
+    "ko": "글의 창에서 밀려난 말을 어떻게 다시 쓸 수 있을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_1-6",
+   "pages": [
+    "mem3_1-6"
+   ]
+  },
+  {
+   "id": "lab:claim/attention-weights",
+   "type": "Claim",
+   "label": {
+    "ko": "트랜스포머는 창 안의 조각들을 입력에 따라 다른 무게로 본다 (어텐션)",
+    "en": ""
+   },
+   "firstPage": "mem3_1-6",
+   "pages": [
+    "mem3_1-6"
+   ]
+  },
+  {
+   "id": "lab:concept/stateless-model",
+   "type": "Concept",
+   "label": {
+    "ko": "간직하지 않는 모델",
+    "en": "stateless inference"
+   },
+   "firstPage": "mem3_2-1",
+   "pages": [
+    "mem3_2-1"
+   ]
+  },
+  {
+   "id": "lab:concept/history-resend",
+   "type": "Concept",
+   "label": {
+    "ko": "지난 대화 다시 보내기",
+    "en": "conversation history resend"
+   },
+   "firstPage": "mem3_2-1",
+   "pages": [
+    "mem3_2-1"
+   ]
+  },
+  {
+   "id": "lab:concept/truncation",
+   "type": "Concept",
+   "label": {
+    "ko": "앞부분 잘라 내기",
+    "en": "truncation"
+   },
+   "firstPage": "mem3_2-1",
+   "pages": [
+    "mem3_2-1"
+   ]
+  },
+  {
+   "id": "lab:limitation/window-eviction",
+   "type": "Limitation",
+   "label": {
+    "ko": "창에서 밀려난 말은 없는 말이다",
+    "en": "evicted context is gone"
+   },
+   "firstPage": "mem3_2-1",
+   "pages": [
+    "mem3_2-1"
+   ]
+  },
+  {
+   "id": "lab:question/mem-2-1-core",
+   "type": "Question",
+   "label": {
+    "ko": "대화형 AI는 지난 대화를 정말 기억하고 있을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_2-1",
+   "pages": [
+    "mem3_2-1"
+   ]
+  },
+  {
+   "id": "lab:question/mem-just-enlarge",
+   "type": "Question",
+   "label": {
+    "ko": "창을 키우기만 하면 기억 문제가 풀릴까?",
+    "en": ""
+   },
+   "firstPage": "mem3_2-1",
+   "pages": [
+    "mem3_2-1"
+   ]
+  },
+  {
+   "id": "lab:claim/history-resend",
+   "type": "Claim",
+   "label": {
+    "ko": "대화가 이어져 보이는 것은 이전 메시지를 매 요청마다 다시 넣기 때문이며, 이력이 빠지면 문맥에서도 사라진다",
+    "en": ""
+   },
+   "firstPage": "mem3_2-1",
+   "pages": [
+    "mem3_2-1"
+   ]
+  },
+  {
+   "id": "lab:claim/kv-cache-not-memory",
+   "type": "Claim",
+   "label": {
+    "ko": "KV 캐시는 계산을 다시 쓰는 장치일 뿐 대화 사이에 남는 기억이 아니다",
+    "en": ""
+   },
+   "firstPage": "mem3_2-1",
+   "pages": [
+    "mem3_2-1"
+   ]
+  },
+  {
+   "id": "lab:concept/attention",
+   "type": "Concept",
+   "label": {
+    "ko": "서로 견주기 (어텐션)",
+    "en": "attention"
+   },
+   "firstPage": "mem3_2-2",
+   "pages": [
+    "mem3_2-2"
+   ]
+  },
+  {
+   "id": "lab:concept/quadratic-cost",
+   "type": "Concept",
+   "label": {
+    "ko": "제곱으로 느는 값",
+    "en": "quadratic cost"
+   },
+   "firstPage": "mem3_2-2",
+   "pages": [
+    "mem3_2-2"
+   ]
+  },
+  {
+   "id": "lab:concept/lost-in-the-middle",
+   "type": "Concept",
+   "label": {
+    "ko": "가운데 놓침",
+    "en": "lost in the middle"
+   },
+   "firstPage": "mem3_2-2",
+   "pages": [
+    "mem3_2-2"
+   ]
+  },
+  {
+   "id": "lab:concept/position-effect",
+   "type": "Concept",
+   "label": {
+    "ko": "자리 효과",
+    "en": "position effect"
+   },
+   "firstPage": "mem3_2-2",
+   "pages": [
+    "mem3_2-2"
+   ]
+  },
+  {
+   "id": "lab:limitation/in-window-not-used",
+   "type": "Limitation",
+   "label": {
+    "ko": "창 안에 있어도 쓰이지 않을 수 있다",
+    "en": "in context is not the same as used"
+   },
+   "firstPage": "mem3_2-2",
+   "pages": [
+    "mem3_2-2"
+   ]
+  },
+  {
+   "id": "lab:question/mem-2-2-core",
+   "type": "Question",
+   "label": {
+    "ko": "창에 전부 넣기만 하면 전부 쓰일까?",
+    "en": ""
+   },
+   "firstPage": "mem3_2-2",
+   "pages": [
+    "mem3_2-2"
+   ]
+  },
+  {
+   "id": "lab:question/mem-other-places",
+   "type": "Question",
+   "label": {
+    "ko": "창이 아닌 다른 곳에 기억을 둘 수는 없을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_2-2",
+   "pages": [
+    "mem3_2-2"
+   ]
+  },
+  {
+   "id": "lab:claim/lost-in-middle",
+   "type": "Claim",
+   "label": {
+    "ko": "긴 입력에서 관련 정보가 처음이나 끝에 있을 때 성능이 가장 높고 가운데 있을 때 떨어지는 경향이 보고되었다",
+    "en": ""
+   },
+   "firstPage": "mem3_2-2",
+   "pages": [
+    "mem3_2-2"
+   ]
+  },
+  {
+   "id": "lab:claim/attention-pairs",
+   "type": "Claim",
+   "label": {
+    "ko": "트랜스포머의 어텐션은 입력의 각 조각이 다른 모든 조각을 살피게 한다",
+    "en": ""
+   },
+   "firstPage": "mem3_2-2",
+   "pages": [
+    "mem3_2-2"
+   ]
+  },
+  {
+   "id": "lab:claim/uneven-use",
+   "type": "Claim",
+   "label": {
+    "ko": "입력이 길어져도 모든 조각이 응답에 똑같이 영향을 주지는 않는다",
+    "en": ""
+   },
+   "firstPage": "mem3_2-2",
+   "pages": [
+    "mem3_2-2"
+   ]
+  },
+  {
+   "id": "lab:concept/parametric-memory",
+   "type": "Concept",
+   "label": {
+    "ko": "모델 속 기억 (가중치)",
+    "en": "parametric memory"
+   },
+   "firstPage": "mem3_2-3",
+   "pages": [
+    "mem3_2-3"
+   ]
+  },
+  {
+   "id": "lab:concept/contextual-memory",
+   "type": "Concept",
+   "label": {
+    "ko": "창 안의 기억",
+    "en": "contextual memory"
+   },
+   "firstPage": "mem3_2-3",
+   "pages": [
+    "mem3_2-3"
+   ]
+  },
+  {
+   "id": "lab:concept/external-memory",
+   "type": "Concept",
+   "label": {
+    "ko": "바깥 기억 (외부 저장소)",
+    "en": "external memory"
+   },
+   "firstPage": "mem3_2-3",
+   "pages": [
+    "mem3_2-3"
+   ]
+  },
+  {
+   "id": "lab:concept/staleness",
+   "type": "Concept",
+   "label": {
+    "ko": "낡은 답",
+    "en": "staleness"
+   },
+   "firstPage": "mem3_2-3",
+   "pages": [
+    "mem3_2-3",
+    "mem3_3-3"
+   ]
+  },
+  {
+   "id": "lab:concept/memory-combination",
+   "type": "Concept",
+   "label": {
+    "ko": "세 서랍을 함께 쓰기",
+    "en": "combining memory types"
+   },
+   "firstPage": "mem3_2-3",
+   "pages": [
+    "mem3_2-3"
+   ]
+  },
+  {
+   "id": "lab:limitation/retrieval-not-guaranteed",
+   "type": "Limitation",
+   "label": {
+    "ko": "찾아왔다고 반드시 쓰이지는 않는다",
+    "en": "retrieved is not the same as used"
+   },
+   "firstPage": "mem3_2-3",
+   "pages": [
+    "mem3_2-3"
+   ]
+  },
+  {
+   "id": "lab:question/mem-2-3-core",
+   "type": "Question",
+   "label": {
+    "ko": "대화형 AI의 기억은 어디에 들어 있을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_2-3",
+   "pages": [
+    "mem3_2-3"
+   ]
+  },
+  {
+   "id": "lab:question/mem-how-to-store",
+   "type": "Question",
+   "label": {
+    "ko": "바깥 서랍에 무엇을, 어떻게 줄여서 넣을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_2-3",
+   "pages": [
+    "mem3_2-3"
+   ]
+  },
+  {
+   "id": "lab:claim/three-memories",
+   "type": "Claim",
+   "label": {
+    "ko": "LLM의 기억은 가중치에 담긴 것, 문맥에 있는 것, 외부 저장소에 있는 것으로 나눌 수 있다",
+    "en": ""
+   },
+   "firstPage": "mem3_2-3",
+   "pages": [
+    "mem3_2-3"
+   ]
+  },
+  {
+   "id": "lab:claim/parametric-hard-to-edit",
+   "type": "Claim",
+   "label": {
+    "ko": "가중치에 담긴 지식은 수정이 어렵고 개별 사실의 삭제를 확인하기 어렵다",
+    "en": ""
+   },
+   "firstPage": "mem3_2-3",
+   "pages": [
+    "mem3_2-3"
+   ]
+  },
+  {
+   "id": "lab:claim/retrieval-not-dominant",
+   "type": "Claim",
+   "label": {
+    "ko": "외부에서 가져온 정보와 가중치 속 지식이 충돌할 때 어느 쪽이 응답을 이끌지는 보장되지 않는다",
+    "en": ""
+   },
+   "firstPage": "mem3_2-3",
+   "pages": [
+    "mem3_2-3"
+   ]
+  },
+  {
+   "id": "lab:method/compaction",
+   "type": "Method",
+   "label": {
+    "ko": "대화 압축 (요약하며 가기)",
+    "en": "conversation compaction"
+   },
+   "firstPage": "mem3_2-4",
+   "pages": [
+    "mem3_2-4"
+   ]
+  },
+  {
+   "id": "lab:concept/summary-of-summary",
+   "type": "Concept",
+   "label": {
+    "ko": "요약의 요약",
+    "en": "summary of summaries"
+   },
+   "firstPage": "mem3_2-4",
+   "pages": [
+    "mem3_2-4"
+   ]
+  },
+  {
+   "id": "lab:concept/retention-per-pass",
+   "type": "Concept",
+   "label": {
+    "ko": "한 번에 남는 비율",
+    "en": "retention per pass"
+   },
+   "firstPage": "mem3_2-4",
+   "pages": [
+    "mem3_2-4"
+   ]
+  },
+  {
+   "id": "lab:limitation/query-agnostic-compression",
+   "type": "Limitation",
+   "label": {
+    "ko": "질문을 모르는 채로 줄인다",
+    "en": "compression before the question is known"
+   },
+   "firstPage": "mem3_2-4",
+   "pages": [
+    "mem3_2-4"
+   ]
+  },
+  {
+   "id": "lab:question/mem-2-4-core",
+   "type": "Question",
+   "label": {
+    "ko": "긴 대화를 요약해서 들고 다니면 무엇을 잃을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_2-4",
+   "pages": [
+    "mem3_2-4"
+   ]
+  },
+  {
+   "id": "lab:question/mem-keep-originals",
+   "type": "Question",
+   "label": {
+    "ko": "원문을 버리지 않고, 질문이 온 뒤에 필요한 것만 찾아올 수 있을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_2-4",
+   "pages": [
+    "mem3_2-4"
+   ]
+  },
+  {
+   "id": "lab:claim/context-compression",
+   "type": "Claim",
+   "label": {
+    "ko": "창 안의 기억을 다루는 방법에는 구성, 잘라내기, 압축, 검색이 있다",
+    "en": ""
+   },
+   "firstPage": "mem3_2-4",
+   "pages": [
+    "mem3_2-4"
+   ]
+  },
+  {
+   "id": "lab:claim/summary-as-episodic",
+   "type": "Claim",
+   "label": {
+    "ko": "대화 요약은 과거 경험을 보존하는 기억의 한 예다",
+    "en": ""
+   },
+   "firstPage": "mem3_2-4",
+   "pages": [
+    "mem3_2-4"
+   ]
+  },
+  {
+   "id": "lab:claim/agent-memory-summarize",
+   "type": "Claim",
+   "label": {
+    "ko": "MemGPT, Mem0, A-MEM 같은 시스템은 과거 대화나 작업 기록을 요약하거나 구조화해 저장한다",
+    "en": ""
+   },
+   "firstPage": "mem3_2-4",
+   "pages": [
+    "mem3_2-4"
+   ]
+  },
+  {
+   "id": "lab:method/rag",
+   "type": "Method",
+   "label": {
+    "ko": "꺼내 읽기 (RAG)",
+    "en": "retrieval-augmented generation"
+   },
+   "firstPage": "mem3_2-5",
+   "pages": [
+    "mem3_2-5"
+   ]
+  },
+  {
+   "id": "lab:concept/lexical-search",
+   "type": "Concept",
+   "label": {
+    "ko": "낱말로 찾기",
+    "en": "lexical search"
+   },
+   "firstPage": "mem3_2-5",
+   "pages": [
+    "mem3_2-5"
+   ]
+  },
+  {
+   "id": "lab:concept/note-store",
+   "type": "Concept",
+   "label": {
+    "ko": "쪽지 서랍",
+    "en": "note store"
+   },
+   "firstPage": "mem3_2-5",
+   "pages": [
+    "mem3_2-5"
+   ]
+  },
+  {
+   "id": "lab:limitation/vocabulary-mismatch",
+   "type": "Limitation",
+   "label": {
+    "ko": "말이 다르면 못 찾는다",
+    "en": "vocabulary mismatch"
+   },
+   "firstPage": "mem3_2-5",
+   "pages": [
+    "mem3_2-5"
+   ]
+  },
+  {
+   "id": "lab:concept/embedding",
+   "type": "Concept",
+   "label": {
+    "ko": "글의 좌표 (임베딩)",
+    "en": "embedding"
+   },
+   "firstPage": "mem3_2-5",
+   "pages": [
+    "mem3_2-5",
+    "mem3_3-4"
+   ]
+  },
+  {
+   "id": "lab:concept/semantic-search",
+   "type": "Concept",
+   "label": {
+    "ko": "뜻으로 찾기",
+    "en": "semantic search"
+   },
+   "firstPage": "mem3_2-5",
+   "pages": [
+    "mem3_2-5"
+   ]
+  },
+  {
+   "id": "lab:limitation/stale-retrieval",
+   "type": "Limitation",
+   "label": {
+    "ko": "낡은 쪽지를 꺼낼 수 있다",
+    "en": "stale retrieval"
+   },
+   "firstPage": "mem3_2-5",
+   "pages": [
+    "mem3_2-5"
+   ]
+  },
+  {
+   "id": "lab:question/mem-2-5-core",
+   "type": "Question",
+   "label": {
+    "ko": "한 달 치 기록에서 지금 필요한 한 장을 어떻게 찾을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_2-5",
+   "pages": [
+    "mem3_2-5"
+   ]
+  },
+  {
+   "id": "lab:question/mem-stale-notes",
+   "type": "Question",
+   "label": {
+    "ko": "서랍에 쌓인 낡은 쪽지는 누가, 언제 치울까?",
+    "en": ""
+   },
+   "firstPage": "mem3_2-5",
+   "pages": [
+    "mem3_2-5"
+   ]
+  },
+  {
+   "id": "lab:claim/rag-definition",
+   "type": "Claim",
+   "label": {
+    "ko": "RAG는 외부 문서 저장소에서 질문과 관련된 정보를 찾아 모델의 입력에 더하는 방식이다",
+    "en": ""
+   },
+   "firstPage": "mem3_2-5",
+   "pages": [
+    "mem3_2-5"
+   ]
+  },
+  {
+   "id": "lab:claim/rag-misses-paraphrase",
+   "type": "Claim",
+   "label": {
+    "ko": "유사한 내용을 중심으로 찾기 때문에 질문과 직접 겹치는 단어가 없는 정보는 놓칠 수 있다",
+    "en": ""
+   },
+   "firstPage": "mem3_2-5",
+   "pages": [
+    "mem3_2-5"
+   ]
+  },
+  {
+   "id": "lab:claim/search-kinds",
+   "type": "Claim",
+   "label": {
+    "ko": "찾는 방식에는 벡터 유사도, 어휘 검색, 메타데이터 필터, 그래프 탐색, 이들을 섞은 방식이 있다",
+    "en": ""
+   },
+   "firstPage": "mem3_2-5",
+   "pages": [
+    "mem3_2-5"
+   ]
+  },
+  {
+   "id": "lab:concept/memory-tradeoff",
+   "type": "Concept",
+   "label": {
+    "ko": "값과 성적의 엇갈림",
+    "en": "cost-accuracy tradeoff"
+   },
+   "firstPage": "mem3_2-6",
+   "pages": [
+    "mem3_2-6"
+   ]
+  },
+  {
+   "id": "lab:method/hybrid-memory",
+   "type": "Method",
+   "label": {
+    "ko": "섞어 쓰기",
+    "en": "hybrid memory"
+   },
+   "firstPage": "mem3_2-6",
+   "pages": [
+    "mem3_2-6",
+    "mem3_3-6"
+   ]
+  },
+  {
+   "id": "lab:concept/token-budget",
+   "type": "Concept",
+   "label": {
+    "ko": "조각 예산",
+    "en": "token budget"
+   },
+   "firstPage": "mem3_2-6",
+   "pages": [
+    "mem3_2-6"
+   ]
+  },
+  {
+   "id": "lab:concept/memory-layers",
+   "type": "Concept",
+   "label": {
+    "ko": "기억의 층",
+    "en": "memory layers"
+   },
+   "firstPage": "mem3_2-6",
+   "pages": [
+    "mem3_2-6",
+    "mem3_3-6"
+   ]
+  },
+  {
+   "id": "lab:question/mem-2-6-core",
+   "type": "Question",
+   "label": {
+    "ko": "한 달 치 대화를 기억하는 가장 좋은 방법은 무엇일까?",
+    "en": ""
+   },
+   "firstPage": "mem3_2-6",
+   "pages": [
+    "mem3_2-6"
+   ]
+  },
+  {
+   "id": "lab:question/mem-who-maintains",
+   "type": "Question",
+   "label": {
+    "ko": "섞어 쓰는 기억을 누가, 언제, 어떻게 돌볼까?",
+    "en": ""
+   },
+   "firstPage": "mem3_2-6",
+   "pages": [
+    "mem3_2-6"
+   ]
+  },
+  {
+   "id": "lab:claim/write-retrieve-maintain",
+   "type": "Claim",
+   "label": {
+    "ko": "기억 관리는 쓰기, 검색, 유지의 세 단계로 볼 수 있다",
+    "en": ""
+   },
+   "firstPage": "mem3_2-6",
+   "pages": [
+    "mem3_2-6",
+    "mem3_3-6"
+   ]
+  },
+  {
+   "id": "lab:claim/many-combine",
+   "type": "Claim",
+   "label": {
+    "ko": "많은 응용이 가중치 속 지식과 외부 저장소를 함께 쓴다",
+    "en": ""
+   },
+   "firstPage": "mem3_2-6",
+   "pages": [
+    "mem3_2-6"
+   ]
+  },
+  {
+   "id": "lab:concept/semantic-memory",
+   "type": "Concept",
+   "label": {
+    "ko": "사실 기억 (의미 기억)",
+    "en": "semantic memory"
+   },
+   "firstPage": "mem3_3-1",
+   "pages": [
+    "mem3_3-1"
+   ]
+  },
+  {
+   "id": "lab:concept/episodic-memory",
+   "type": "Concept",
+   "label": {
+    "ko": "경험 기억 (일화 기억)",
+    "en": "episodic memory"
+   },
+   "firstPage": "mem3_3-1",
+   "pages": [
+    "mem3_3-1"
+   ]
+  },
+  {
+   "id": "lab:concept/procedural-memory",
+   "type": "Concept",
+   "label": {
+    "ko": "하는 법 기억 (절차 기억)",
+    "en": "procedural memory"
+   },
+   "firstPage": "mem3_3-1",
+   "pages": [
+    "mem3_3-1"
+   ]
+  },
+  {
+   "id": "lab:concept/over-extraction",
+   "type": "Concept",
+   "label": {
+    "ko": "너무 많이 적기 (과잉 추출)",
+    "en": "over-extraction"
+   },
+   "firstPage": "mem3_3-1",
+   "pages": [
+    "mem3_3-1"
+   ]
+  },
+  {
+   "id": "lab:concept/under-extraction",
+   "type": "Concept",
+   "label": {
+    "ko": "너무 적게 적기 (과소 추출)",
+    "en": "under-extraction"
+   },
+   "firstPage": "mem3_3-1",
+   "pages": [
+    "mem3_3-1"
+   ]
+  },
+  {
+   "id": "lab:concept/precision-recall",
+   "type": "Concept",
+   "label": {
+    "ko": "정밀도와 재현율",
+    "en": "precision and recall"
+   },
+   "firstPage": "mem3_3-1",
+   "pages": [
+    "mem3_3-1"
+   ]
+  },
+  {
+   "id": "lab:question/mem-3-1-core",
+   "type": "Question",
+   "label": {
+    "ko": "대화에서 나온 말 가운데 무엇을 적어 둬야 할까?",
+    "en": ""
+   },
+   "firstPage": "mem3_3-1",
+   "pages": [
+    "mem3_3-1"
+   ]
+  },
+  {
+   "id": "lab:question/mem-when-to-write",
+   "type": "Question",
+   "label": {
+    "ko": "쪽지는 대화하는 도중에 적을까, 끝난 뒤에 적을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_3-1",
+   "pages": [
+    "mem3_3-1"
+   ]
+  },
+  {
+   "id": "lab:claim/three-memory-types",
+   "type": "Claim",
+   "label": {
+    "ko": "기억은 의미(사실과 지식), 일화(과거 경험), 절차(시스템 동작) 세 유형으로 나눌 수 있다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-1",
+   "pages": [
+    "mem3_3-1"
+   ]
+  },
+  {
+   "id": "lab:claim/over-under-extraction",
+   "type": "Claim",
+   "label": {
+    "ko": "과잉 추출은 검색 정밀도를, 과소 추출은 재현율을 떨어뜨린다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-1",
+   "pages": [
+    "mem3_3-1"
+   ]
+  },
+  {
+   "id": "lab:claim/procedural-in-prompt",
+   "type": "Claim",
+   "label": {
+    "ko": "절차 기억은 시스템 프롬프트에서 출발해 피드백과 경험으로 다듬어진다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-1",
+   "pages": [
+    "mem3_3-1"
+   ]
+  },
+  {
+   "id": "lab:concept/hot-path-write",
+   "type": "Concept",
+   "label": {
+    "ko": "대화 중에 적기",
+    "en": "hot-path memory formation"
+   },
+   "firstPage": "mem3_3-2",
+   "pages": [
+    "mem3_3-2"
+   ]
+  },
+  {
+   "id": "lab:concept/background-write",
+   "type": "Concept",
+   "label": {
+    "ko": "대화 뒤에 적기",
+    "en": "background memory formation"
+   },
+   "firstPage": "mem3_3-2",
+   "pages": [
+    "mem3_3-2"
+   ]
+  },
+  {
+   "id": "lab:concept/write-latency",
+   "type": "Concept",
+   "label": {
+    "ko": "적느라 늘어나는 기다림",
+    "en": "write latency"
+   },
+   "firstPage": "mem3_3-2",
+   "pages": [
+    "mem3_3-2"
+   ]
+  },
+  {
+   "id": "lab:concept/profile-memory",
+   "type": "Concept",
+   "label": {
+    "ko": "프로필 (한 장에 고쳐 쓰기)",
+    "en": "profile memory"
+   },
+   "firstPage": "mem3_3-2",
+   "pages": [
+    "mem3_3-2"
+   ]
+  },
+  {
+   "id": "lab:concept/collection-memory",
+   "type": "Concept",
+   "label": {
+    "ko": "모음 (쪽지 더하기)",
+    "en": "collection memory"
+   },
+   "firstPage": "mem3_3-2",
+   "pages": [
+    "mem3_3-2"
+   ]
+  },
+  {
+   "id": "lab:limitation/profile-loses-history",
+   "type": "Limitation",
+   "label": {
+    "ko": "고쳐 쓰면 지난 일을 잃는다",
+    "en": "overwriting loses history"
+   },
+   "firstPage": "mem3_3-2",
+   "pages": [
+    "mem3_3-2"
+   ]
+  },
+  {
+   "id": "lab:question/mem-3-2-core",
+   "type": "Question",
+   "label": {
+    "ko": "쪽지는 말하는 도중에 적을까, 끝나고 나서 적을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_3-2",
+   "pages": [
+    "mem3_3-2"
+   ]
+  },
+  {
+   "id": "lab:question/mem-how-to-maintain",
+   "type": "Question",
+   "label": {
+    "ko": "모음에 섞인 낡은 쪽지를 어떻게 가려낼까?",
+    "en": ""
+   },
+   "firstPage": "mem3_3-2",
+   "pages": [
+    "mem3_3-2"
+   ]
+  },
+  {
+   "id": "lab:claim/hot-path-vs-background",
+   "type": "Claim",
+   "label": {
+    "ko": "대화 중 저장은 즉각 반영되지만 응답 지연이 생기고, 대화 뒤 저장은 응답 지연이 없지만 갱신이 늦다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-2",
+   "pages": [
+    "mem3_3-2"
+   ]
+  },
+  {
+   "id": "lab:claim/profile-vs-collection",
+   "type": "Claim",
+   "label": {
+    "ko": "프로필은 현재 상태를 나타내는 단일 문서로 새 정보가 오면 갱신하고, 모음은 개별 기록을 저장해 실행 시점에 검색한다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-2",
+   "pages": [
+    "mem3_3-2"
+   ]
+  },
+  {
+   "id": "lab:concept/memory-maintenance",
+   "type": "Concept",
+   "label": {
+    "ko": "기억 돌보기 (유지)",
+    "en": "memory maintenance"
+   },
+   "firstPage": "mem3_3-3",
+   "pages": [
+    "mem3_3-3",
+    "mem3_3-6"
+   ]
+  },
+  {
+   "id": "lab:concept/conflicting-memories",
+   "type": "Concept",
+   "label": {
+    "ko": "어긋난 쪽지",
+    "en": "conflicting memories"
+   },
+   "firstPage": "mem3_3-3",
+   "pages": [
+    "mem3_3-3"
+   ]
+  },
+  {
+   "id": "lab:method/supersede",
+   "type": "Method",
+   "label": {
+    "ko": "덮어쓰기",
+    "en": "overwrite"
+   },
+   "firstPage": "mem3_3-3",
+   "pages": [
+    "mem3_3-3"
+   ]
+  },
+  {
+   "id": "lab:method/invalidate",
+   "type": "Method",
+   "label": {
+    "ko": "낡음 표시하기",
+    "en": "invalidate with history"
+   },
+   "firstPage": "mem3_3-3",
+   "pages": [
+    "mem3_3-3"
+   ]
+  },
+  {
+   "id": "lab:concept/knowledge-graph",
+   "type": "Concept",
+   "label": {
+    "ko": "지식 그래프",
+    "en": "knowledge graph"
+   },
+   "firstPage": "mem3_3-3",
+   "pages": [
+    "mem3_3-3"
+   ]
+  },
+  {
+   "id": "lab:concept/temporal-validity",
+   "type": "Concept",
+   "label": {
+    "ko": "언제 맞았는지 적기",
+    "en": "temporal validity"
+   },
+   "firstPage": "mem3_3-3",
+   "pages": [
+    "mem3_3-3"
+   ]
+  },
+  {
+   "id": "lab:question/mem-3-3-core",
+   "type": "Question",
+   "label": {
+    "ko": "쌓이기만 하는 기억은 왜 점점 틀리게 될까?",
+    "en": ""
+   },
+   "firstPage": "mem3_3-3",
+   "pages": [
+    "mem3_3-3"
+   ]
+  },
+  {
+   "id": "lab:question/mem-beyond-text",
+   "type": "Question",
+   "label": {
+    "ko": "기억을 글로 창에 넣지 않고 다른 꼴로 넘겨줄 수 있을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_3-3",
+   "pages": [
+    "mem3_3-3"
+   ]
+  },
+  {
+   "id": "lab:claim/maintain-step",
+   "type": "Claim",
+   "label": {
+    "ko": "유지 단계는 새 정보와 낡은 정보의 충돌을 감지하고, 현재 유효한 정보를 표시하며, 이력을 보관한다. 이 단계가 없으면 오래된 사실이 쌓여 검색 결과에 섞인다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-3",
+   "pages": [
+    "mem3_3-3"
+   ]
+  },
+  {
+   "id": "lab:claim/graph-entities",
+   "type": "Claim",
+   "label": {
+    "ko": "저장할 때 엔티티와 관계를 추출해 그래프로 구성하면 나중에 연결을 따라 검색할 수 있다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-3",
+   "pages": [
+    "mem3_3-3"
+   ]
+  },
+  {
+   "id": "lab:claim/reconcile-collection",
+   "type": "Claim",
+   "label": {
+    "ko": "모음에서는 새 정보와 기존 기억을 조정해야 한다. 기존 기억을 삭제·무효화하거나 갱신·통합한다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-3",
+   "pages": [
+    "mem3_3-3"
+   ]
+  },
+  {
+   "id": "lab:method/memorilla",
+   "type": "Method",
+   "label": {
+    "ko": "Memorilla",
+    "en": "Memorilla"
+   },
+   "firstPage": "mem3_3-4",
+   "pages": [
+    "mem3_3-4"
+   ]
+  },
+  {
+   "id": "lab:concept/memory-token",
+   "type": "Concept",
+   "label": {
+    "ko": "기억 토큰",
+    "en": "memory token"
+   },
+   "firstPage": "mem3_3-4",
+   "pages": [
+    "mem3_3-4",
+    "mem3_3-5"
+   ]
+  },
+  {
+   "id": "lab:concept/query-conditioned-memory",
+   "type": "Concept",
+   "label": {
+    "ko": "질문을 보고 만드는 기억",
+    "en": "query-conditioned memory"
+   },
+   "firstPage": "mem3_3-4",
+   "pages": [
+    "mem3_3-4"
+   ]
+  },
+  {
+   "id": "lab:concept/frozen-llm",
+   "type": "Concept",
+   "label": {
+    "ko": "손대지 않는 모델",
+    "en": "frozen LLM"
+   },
+   "firstPage": "mem3_3-4",
+   "pages": [
+    "mem3_3-4"
+   ]
+  },
+  {
+   "id": "lab:concept/benchmark-reading",
+   "type": "Concept",
+   "label": {
+    "ko": "성적표 끝까지 읽기",
+    "en": "reading the full benchmark table"
+   },
+   "firstPage": "mem3_3-4",
+   "pages": [
+    "mem3_3-4"
+   ]
+  },
+  {
+   "id": "lab:limitation/detail-loss",
+   "type": "Limitation",
+   "label": {
+    "ko": "줄이면 세밀한 정보를 잃을 수 있다",
+    "en": "loss of fine detail"
+   },
+   "firstPage": "mem3_3-4",
+   "pages": [
+    "mem3_3-4"
+   ]
+  },
+  {
+   "id": "lab:limitation/per-model-training",
+   "type": "Limitation",
+   "label": {
+    "ko": "모델마다 따로 학습해야 한다",
+    "en": "needs per-model training"
+   },
+   "firstPage": "mem3_3-4",
+   "pages": [
+    "mem3_3-4"
+   ]
+  },
+  {
+   "id": "lab:question/mem-3-4-core",
+   "type": "Question",
+   "label": {
+    "ko": "서랍 전체를 읽고 나서, 질문에 필요한 것만 열여섯 칸에 담아 넘길 수 있을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_3-4",
+   "pages": [
+    "mem3_3-4"
+   ]
+  },
+  {
+   "id": "lab:question/mem-agent-experience",
+   "type": "Question",
+   "label": {
+    "ko": "스스로 움직이는 에이전트는 자기가 겪은 일을 어떻게 기억할까?",
+    "en": ""
+   },
+   "firstPage": "mem3_3-4",
+   "pages": [
+    "mem3_3-4"
+   ]
+  },
+  {
+   "id": "lab:question/memorilla-arxiv-check",
+   "type": "Question",
+   "label": {
+    "ko": "프로젝트 페이지의 수치는 arXiv 원문과 일치하는가?",
+    "en": ""
+   },
+   "firstPage": "mem3_3-4",
+   "pages": [
+    "mem3_3-4"
+   ]
+  },
+  {
+   "id": "lab:claim/memorilla-design",
+   "type": "Claim",
+   "label": {
+    "ko": "Memorilla는 저장된 문서 전체에서 질문에 따라 달라지는 고정 개수의 기억 토큰을 만들어 가중치를 고정한 LLM에 넘긴다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-4",
+   "pages": [
+    "mem3_3-4"
+   ]
+  },
+  {
+   "id": "lab:claim/memorilla-5of8",
+   "type": "Claim",
+   "label": {
+    "ko": "Memorilla는 16개 기억 토큰으로 8개 시험 가운데 5개에서 비교 방식들보다 높은 점수를 보고했다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-4",
+   "pages": [
+    "mem3_3-4"
+   ]
+  },
+  {
+   "id": "lab:claim/memorilla-token-ratio",
+   "type": "Claim",
+   "label": {
+    "ko": "NarrativeQA에서 전부 넣기 대비 약 4,212배 적은 문서 토큰(67,385 → 16)을 쓴 것으로 보고됐다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-4",
+   "pages": [
+    "mem3_3-4"
+   ]
+  },
+  {
+   "id": "lab:claim/memorilla-limits",
+   "type": "Claim",
+   "label": {
+    "ko": "저자는 세밀한 정보 손실, 모델별 학습 필요, 한 모델 계열에서만 시험한 점을 한계로 든다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-4",
+   "pages": [
+    "mem3_3-4"
+   ]
+  },
+  {
+   "id": "lab:claim/blog-five-rows",
+   "type": "Claim",
+   "label": {
+    "ko": "한국어 소개 글의 성적 표에는 8개 시험 가운데 5개가 실려 있다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-4",
+   "pages": [
+    "mem3_3-4"
+   ]
+  },
+  {
+   "id": "lab:concept/agent",
+   "type": "Concept",
+   "label": {
+    "ko": "에이전트",
+    "en": "agent"
+   },
+   "firstPage": "mem3_3-5",
+   "pages": [
+    "mem3_3-5"
+   ]
+  },
+  {
+   "id": "lab:concept/experience-memory",
+   "type": "Concept",
+   "label": {
+    "ko": "경험 기억",
+    "en": "experience memory"
+   },
+   "firstPage": "mem3_3-5",
+   "pages": [
+    "mem3_3-5"
+   ]
+  },
+  {
+   "id": "lab:concept/visited-set",
+   "type": "Concept",
+   "label": {
+    "ko": "가 본 방 목록",
+    "en": "visited set"
+   },
+   "firstPage": "mem3_3-5",
+   "pages": [
+    "mem3_3-5"
+   ]
+  },
+  {
+   "id": "lab:concept/revisiting",
+   "type": "Concept",
+   "label": {
+    "ko": "맴돌기",
+    "en": "revisiting"
+   },
+   "firstPage": "mem3_3-5",
+   "pages": [
+    "mem3_3-5"
+   ]
+  },
+  {
+   "id": "lab:concept/textworld",
+   "type": "Concept",
+   "label": {
+    "ko": "글로 하는 게임 (TextWorld)",
+    "en": "TextWorld"
+   },
+   "firstPage": "mem3_3-5",
+   "pages": [
+    "mem3_3-5"
+   ]
+  },
+  {
+   "id": "lab:limitation/single-environment",
+   "type": "Limitation",
+   "label": {
+    "ko": "한 환경, 50턴까지의 결과",
+    "en": "single environment, short horizon"
+   },
+   "firstPage": "mem3_3-5",
+   "pages": [
+    "mem3_3-5"
+   ]
+  },
+  {
+   "id": "lab:question/mem-3-5-core",
+   "type": "Question",
+   "label": {
+    "ko": "스스로 움직이는 AI는 자기가 한 일을 기억해야 할까?",
+    "en": ""
+   },
+   "firstPage": "mem3_3-5",
+   "pages": [
+    "mem3_3-5"
+   ]
+  },
+  {
+   "id": "lab:question/mem-long-horizon-agents",
+   "type": "Question",
+   "label": {
+    "ko": "며칠, 몇 달에 걸쳐 일하는 에이전트의 기억은 어떻게 재고 어떻게 돌볼까?",
+    "en": ""
+   },
+   "firstPage": "mem3_3-5",
+   "pages": [
+    "mem3_3-5"
+   ]
+  },
+  {
+   "id": "lab:claim/textworld-result",
+   "type": "Claim",
+   "label": {
+    "ko": "TextWorld에서 지나온 기록 전체만 넣은 에이전트의 평균 성공률 18.6%가 기억 토큰을 더하자 24.2%로 보고됐다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-5",
+   "pages": [
+    "mem3_3-5"
+   ]
+  },
+  {
+   "id": "lab:claim/textworld-setup",
+   "type": "Claim",
+   "label": {
+    "ko": "TextWorld 실험은 가중치를 고정한 Qwen3-4B 에이전트, 최대 65개 방, 50턴 제한, 기억 토큰 8개로 이루어졌다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-5",
+   "pages": [
+    "mem3_3-5"
+   ]
+  },
+  {
+   "id": "lab:claim/textworld-limit",
+   "type": "Claim",
+   "label": {
+    "ko": "저자는 단일 게임 묶음과 최대 50턴이라는 조건 때문에 여러 환경이나 장기 사용은 아직 입증되지 않았다고 밝힌다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-5",
+   "pages": [
+    "mem3_3-5"
+   ]
+  },
+  {
+   "id": "lab:claim/episodic-examples",
+   "type": "Claim",
+   "label": {
+    "ko": "일화 기억은 성공한 상호작용을 본보기로 보존한다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-5",
+   "pages": [
+    "mem3_3-5"
+   ]
+  },
+  {
+   "id": "lab:concept/memory-length",
+   "type": "Concept",
+   "label": {
+    "ko": "길이 (얼마나 멀리)",
+    "en": "memory length"
+   },
+   "firstPage": "mem3_3-6",
+   "pages": [
+    "mem3_3-6"
+   ]
+  },
+  {
+   "id": "lab:concept/memory-fidelity",
+   "type": "Concept",
+   "label": {
+    "ko": "충실도 (얼마나 정확히)",
+    "en": "memory fidelity"
+   },
+   "firstPage": "mem3_3-6",
+   "pages": [
+    "mem3_3-6"
+   ]
+  },
+  {
+   "id": "lab:concept/memory-freshness",
+   "type": "Concept",
+   "label": {
+    "ko": "갱신 (얼마나 지금에 맞게)",
+    "en": "memory freshness"
+   },
+   "firstPage": "mem3_3-6",
+   "pages": [
+    "mem3_3-6"
+   ]
+  },
+  {
+   "id": "lab:concept/system-vs-model-memory",
+   "type": "Concept",
+   "label": {
+    "ko": "모델의 기억과 시스템의 기억",
+    "en": "model memory vs system memory"
+   },
+   "firstPage": "mem3_3-6",
+   "pages": [
+    "mem3_3-6"
+   ]
+  },
+  {
+   "id": "lab:question/mem-3-6-core",
+   "type": "Question",
+   "label": {
+    "ko": "LLM은 어디까지 기억할 수 있을까?",
+    "en": ""
+   },
+   "firstPage": "mem3_3-6",
+   "pages": [
+    "mem3_3-6"
+   ]
+  },
+  {
+   "id": "lab:question/mem-layer-conflict",
+   "type": "Question",
+   "label": {
+    "ko": "기억의 층끼리 어긋날 때 무엇을 믿게 할까?",
+    "en": ""
+   },
+   "firstPage": "mem3_3-6",
+   "pages": [
+    "mem3_3-6"
+   ]
+  },
+  {
+   "id": "lab:question/mem-detect-miss",
+   "type": "Question",
+   "label": {
+    "ko": "찾기가 틀렸다는 것을 시스템이 어떻게 알아챌까?",
+    "en": ""
+   },
+   "firstPage": "mem3_3-6",
+   "pages": [
+    "mem3_3-6"
+   ]
+  },
+  {
+   "id": "lab:question/mem-forgetting-right",
+   "type": "Question",
+   "label": {
+    "ko": "지워 달라는 요청을 모든 서랍에서 어떻게 지킬까?",
+    "en": ""
+   },
+   "firstPage": "mem3_3-6",
+   "pages": [
+    "mem3_3-6"
+   ]
+  },
+  {
+   "id": "lab:claim/context-not-long-term",
+   "type": "Claim",
+   "label": {
+    "ko": "문맥 창은 한 번의 추론에서 무엇을 처리할 수 있는지를, 장기 기억은 문맥이 끝난 뒤에도 정보가 남는지를 정한다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-6",
+   "pages": [
+    "mem3_3-6"
+   ]
+  },
+  {
+   "id": "lab:claim/memorilla-future",
+   "type": "Claim",
+   "label": {
+    "ko": "Memorilla 저자는 기억과 검색을 결합하는 것을 다음 과제로 든다",
+    "en": ""
+   },
+   "firstPage": "mem3_3-6",
+   "pages": [
+    "mem3_3-6"
+   ]
+  }
+ ],
+ "works": [
+  "lab:work/ahn2026ts3_1_1",
+  "lab:work/ahn2026ts3_2_2",
+  "lab:work/bengio1994learning",
+  "lab:work/box1970time",
+  "lab:work/cognee2026llmmemory",
+  "lab:work/cote2018textworld",
+  "lab:work/elman1990finding",
+  "lab:work/fallahpour2026memorilla",
+  "lab:work/gers2000learning",
+  "lab:work/granger1980introduction",
+  "lab:work/hochreiter1997long",
+  "lab:work/hosking1981fractional",
+  "lab:work/hurst1951long",
+  "lab:work/langmem2026concepts",
+  "lab:work/lewis2020retrieval",
+  "lab:work/liu2024lost",
+  "lab:work/papanubo2026memorilla",
+  "lab:work/vaswani2017attention"
+ ],
+ "duelBalance": {
+  "F": 7,
+  "R": 8,
+  "D": 3,
+  "X": 0,
+  "C": 0
+ }
+}
